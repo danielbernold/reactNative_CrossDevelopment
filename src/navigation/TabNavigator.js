@@ -7,6 +7,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import FavoritePage from '../screens/FavoritePage';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,6 +33,9 @@ export default function TabNavigator() {
             case 'Profile':
               iconName = focused ? 'person' : 'person-outline';
               break;
+            case 'Favorite':
+              iconName = focused ? 'heart' : 'heart-outline';
+              break;
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -43,6 +47,7 @@ export default function TabNavigator() {
       <Tab.Screen name="Search" component={ProductListScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Favorite" component={FavoritePage} />
     </Tab.Navigator>
   );
 }

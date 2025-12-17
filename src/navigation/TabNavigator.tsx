@@ -3,11 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import ProductListScreen from '../screens/ProductListScreen';
 import CartScreen from '../screens/CartScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from '../screens/ApiScreen';
 
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import FavoritePage from '../screens/FavoritePage';
+import ApiScreen from '../screens/ApiScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +19,7 @@ export default function TabNavigator() {
         headerShown: false,
 
         tabBarIcon: ({focused, color, size}) => {
-          let iconName;
+          let iconName: keyof typeof Ionicons.glyphMap = 'home';
 
           switch (route.name) {
             case 'Home':
@@ -30,7 +31,7 @@ export default function TabNavigator() {
             case 'Cart':
               iconName = focused ? 'cart' : 'cart-outline';
               break;
-            case 'Profile':
+            case 'Api':
               iconName = focused ? 'person' : 'person-outline';
               break;
             case 'Favorite':
@@ -46,7 +47,7 @@ export default function TabNavigator() {
       <Tab.Screen name="Home" component={HomeScreen}  />
       <Tab.Screen name="Search" component={ProductListScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="API" component={ApiScreen} />
       <Tab.Screen name="Favorite" component={FavoritePage} />
     </Tab.Navigator>
   );

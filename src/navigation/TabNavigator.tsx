@@ -9,6 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import FavoritePage from '../screens/FavoritePage';
 import ApiScreen from '../screens/ApiScreen';
+import NetworkScreen from 'src/screens/NetworkScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +26,7 @@ export default function TabNavigator() {
             case 'Home':
               iconName = focused ? 'home' : 'home-outline';
               break;
-            case 'Search':
+            case 'Network':
               iconName = focused ? 'search' : 'search-outline';
               break;
             case 'Cart':
@@ -45,7 +46,7 @@ export default function TabNavigator() {
     
     >
       <Tab.Screen name="Home" component={HomeScreen}  />
-      <Tab.Screen name="Search" component={ProductListScreen} />
+      <Tab.Screen name="Network" component={NetworkScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />
       <Tab.Screen name="API" component={ApiScreen} />
       <Tab.Screen name="Favorite" component={FavoritePage} />
